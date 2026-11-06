@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Czekamy – NF1 News</title>
+  
+  <meta name="description" content="Ile dni pacjenci z NF czekają na skoordynowaną opiekę. Pilotaż skończył się 30 kwietnia 2026 r., a 23 października 2026 r. Ministerstwo Zdrowia zakończyło prace nad stałym świadczeniem.">
+  <link rel="canonical" href="https://czekamy.nf1news.pl/">
+  <meta property="og:site_name" content="NF1 News">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Czekamy na dialog z pacjentami – licznik NF1 News">
+  <meta property="og:description" content="Ile dni pacjenci z NF czekają na skoordynowaną opiekę. Pilotaż skończył się 30 kwietnia 2026 r., a 23 października 2026 r. Ministerstwo Zdrowia zakończyło prace nad stałym świadczeniem.">
+  <meta property="og:url" content="https://czekamy.nf1news.pl/">
+  <meta property="og:image" content="https://nf1news.pl/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="NF1 News – niezależny serwis informacyjny o NF1 w Polsce">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://nf1news.pl/assets/og-image.png">
+  <meta name="twitter:title" content="Czekamy na dialog z pacjentami – licznik NF1 News">
+  <meta name="twitter:description" content="Ile dni pacjenci z NF czekają na skoordynowaną opiekę. Pilotaż skończył się 30 kwietnia 2026 r., a 23 października 2026 r. Ministerstwo Zdrowia zakończyło prace nad stałym świadczeniem.">
+  <link rel="icon" href="https://nf1news.pl/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://nf1news.pl/assets/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="NF1 News" href="https://nf1news.pl/feed.xml">
+  <style>
+    /* Paleta wykresów: kolory c1–c8 używaj po kolei (c1, c2, c3…), nie losowo. */
+    :root { --c1: #2a78d6; --c2: #eb6834; --c3: #1baf7a; --c4: #eda100; --c5: #e87ba4; --c6: #008300; --c7: #6250d6; --c8: #e34948; }
+    @media (prefers-color-scheme: dark) { :root { --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #c98500; --c5: #d55181; --c6: #008300; --c7: #9085e9; --c8: #e66767; } }
+    body { max-width: 40rem; margin: 0 auto; padding: 1.5rem 1rem; font: 18px/1.6 Georgia, serif; color: #222; background: #fff; }
+    @media (prefers-color-scheme: dark) { body { color: #ddd; background: #161616; } a { color: #8ab4f8; } }
+    header, footer { font-family: system-ui, sans-serif; font-size: 0.9rem; }
+    header { margin-bottom: 2rem; }
+    header a.title { display: inline-flex; align-items: flex-end; gap: 0.45rem; font-weight: 700; font-size: 1.25rem; line-height: 1; text-decoration: none; color: inherit; vertical-align: -0.15rem; }
+    header a.title svg { display: block; }
+    nav a { display: inline-block; margin-left: 1rem; white-space: nowrap; }
+    .date { color: #777; font-family: system-ui, sans-serif; font-size: 0.85rem; }
+    article { margin-bottom: 2.5rem; }
+    h1, h2 { line-height: 1.25; }
+    ul.list { list-style: none; padding: 0; }
+    ul.list li { margin-bottom: 0.5rem; }
+    footer { margin-top: 3rem; color: #777; }
+    table { display: block; overflow-x: auto; border-collapse: collapse; margin: 1rem 0; font-family: system-ui, sans-serif; font-size: 0.85rem; }
+    th, td { border-bottom: 1px solid #ccc; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+    th { border-bottom-width: 2px; }
+    .chart { margin: 1rem 0 1.5rem; font-family: system-ui, sans-serif; font-size: 0.8rem; }
+    .chart .legend { margin: 0 0 0.5rem; color: #777; }
+    .chart .row { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.5rem; align-items: center; margin: 2px 0; }
+    .chart .track { display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
+    .bar { display: inline-block; height: 0.9rem; min-width: 2px; background: var(--c1); border-radius: 0 4px 4px 0; }
+    .legend .bar { width: 0.8rem; height: 0.8rem; vertical-align: -0.1rem; margin-right: 0.2rem; }
+    .legend .item { white-space: nowrap; margin-right: 0.8rem; }
+    .legend .bar { border-radius: 2px; }
+    .bar.c1 { background: var(--c1); }
+    .bar.c2 { background: var(--c2); }
+    .bar.c3 { background: var(--c3); }
+    .bar.c4 { background: var(--c4); }
+    .bar.c5 { background: var(--c5); }
+    .bar.c6 { background: var(--c6); }
+    .bar.c7 { background: var(--c7); }
+    .bar.c8 { background: var(--c8); }
+    .share { font-family: system-ui, sans-serif; font-size: 0.85rem; color: #777; margin-top: -0.5rem; }
+    .fb-box { font-family: system-ui, sans-serif; font-size: 0.85rem; margin: 0 0 1rem; padding: 0.6rem 0.8rem; border: 1px solid #ccc; border-radius: 4px; }
+    .fb-box p { margin: 0.4rem 0; }
+    .fb-box textarea { width: 100%; box-sizing: border-box; font: inherit; color: inherit; background: none; border: 1px solid #ccc; border-radius: 4px; padding: 0.4rem; }
+    .mail-box { font-family: system-ui, sans-serif; font-size: 0.85rem; margin: 0 0 1rem; }
+    .mail-box label { display: block; margin: 0.4rem 0; color: #777; }
+    .mail-box .mail-note { margin: 0.4rem 0; }
+    .mail-box .copy-msg { margin: 0; min-height: 1.2em; font-weight: 600; }
+    .mail-box textarea { width: 100%; box-sizing: border-box; font: inherit; color: inherit; background: none; border: 1px solid #ccc; border-radius: 4px; padding: 0.4rem; }
+    .btn { display: inline-block; font: 0.85rem system-ui, sans-serif; padding: 0.4rem 0.8rem; margin: 0 0.4rem 0.4rem 0; border: 1px solid currentColor; border-radius: 4px; background: none; color: inherit; text-decoration: none; cursor: pointer; }
+    .toc { display: block; margin: 1rem 0 2rem; padding: 0.7rem 1rem; border-left: 4px solid var(--c1); background: #f4f7fb; font-family: system-ui, sans-serif; font-size: 0.9rem; }
+    @media (prefers-color-scheme: dark) { .toc { background: #1f2329; } }
+    .toc p { margin: 0 0 0.3rem; }
+    .toc ol { margin: 0; padding-left: 1.3rem; }
+    .toc ul { margin: 0.1rem 0 0.2rem; padding-left: 1.1rem; }
+    .toc a { margin: 0; }
+    .card { margin: 0 0 1.5rem; padding: 0.2rem 1rem 0.6rem; border: 1px solid #ccc; border-radius: 6px; }
+    @media (prefers-color-scheme: dark) { .card { border-color: #444; } }
+    .card h3 { margin: 0.8rem 0 0.3rem; font-size: 1.1rem; line-height: 1.3; }
+    .card .to, .card .files { font-family: system-ui, sans-serif; font-size: 0.85rem; margin: 0.2rem 0; }
+    .card .to { color: #777; }
+    .card code { overflow-wrap: anywhere; }
+    .card dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 0.8rem; margin: 0.6rem 0; font-family: system-ui, sans-serif; font-size: 0.9rem; align-items: baseline; }
+    .card dt { color: #777; }
+    .card dd { margin: 0; }
+    .card.contact p { font-size: 0.95rem; }
+    .btn.small { padding: 0.1rem 0.5rem; margin: 0 0 0 0.3rem; font-size: 0.8rem; }
+    @media (max-width: 480px) { .card dl { grid-template-columns: 1fr; gap: 0 0; } .card dd { margin-bottom: 0.4rem; } }
+    mark { background: #ffe680; color: inherit; padding: 0 .15em; border-radius: 2px; }
+    @media (prefers-color-scheme: dark) { mark { background: #6b5500; color: #fff; } }
+    blockquote.steno { margin: 1rem 0; padding: 0 0 0 1rem; border-left: 3px solid #ccc; }
+    .source { color: #777; font-family: system-ui, sans-serif; font-size: 0.8rem; }
+    .start { margin: 0 0 2.5rem; padding: 0.8rem 1.1rem; border-left: 4px solid var(--c1); background: #f4f7fb; }
+    @media (prefers-color-scheme: dark) { .start { background: #1f2329; } }
+    .start h2 { margin: 0.2rem 0 0.4rem; font-size: 1.2rem; }
+    .start p { margin: 0 0 0.4rem; }
+    .start ul { margin: 0 0 0.3rem; padding-left: 1.2rem; }
+    .start li { margin: 0.3rem 0; }
+    .feed-head { font-size: 1.2rem; }
+    article.teaser { margin-bottom: 1.8rem; padding-bottom: 1.4rem; border-bottom: 1px solid #ddd; }
+    @media (prefers-color-scheme: dark) { article.teaser { border-color: #333; } }
+    article.teaser h3 { margin: 0.1rem 0 0.4rem; font-size: 1.15rem; line-height: 1.3; }
+    article.teaser .date { margin: 0; }
+    article.teaser p { margin: 0 0 0.4rem; }
+    .more { font-family: system-ui, sans-serif; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="title" href="https://nf1news.pl/"><svg width="20" height="21" viewBox="0 0 35 37" aria-hidden="true"><rect x="0" y="16" width="9" height="21" rx="2" fill="var(--c2)"/><rect x="13" y="8" width="9" height="29" rx="2" fill="var(--c1)"/><rect x="26" y="0" width="9" height="37" rx="2" fill="currentColor"/></svg>NF1 News</a>
+    <nav style="display:inline"><a href="https://nf1news.pl/wpisy/">Wszystkie wpisy</a><a href="https://nf1news.pl/do-pobrania/">Do pobrania</a><a href="https://nf1news.pl/wiedza/">Wiedza</a><a href="https://nf1news.pl/o-serwisie/">O serwisie</a><a href="https://nf1news.pl/feed.xml">RSS</a></nav>
+  </header>
+  <main>
+<style>
+  /* Licznik w stylu zegara klapkowego: każda cyfra to karta z poziomym podziałem, która przy zmianie „przeskakuje”. */
+  .licznik { font-family: system-ui, sans-serif; text-align: center; margin: 1rem 0 2.5rem; }
+  .licznik .lead { font-size: 1rem; margin: 0 0 0.8rem; }
+  .licznik .jedn { display: block; font-size: 1.4rem; font-weight: 700; margin: 0.6rem 0 0.4rem; }
+  .licznik .od { font-size: 0.9rem; color: #777; margin: 0.8rem 0 0; }
+  .licznik + .licznik { padding-top: 2rem; border-top: 1px solid #ddd; }
+  @media (prefers-color-scheme: dark) { .licznik + .licznik { border-color: #333; } }
+
+  .flip { display: inline-flex; gap: 0.08em; align-items: center; font-size: clamp(3.6rem, 19vw, 6.5rem); font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; perspective: 4em; }
+  .flip.maly { font-size: clamp(1.7rem, 8.5vw, 2.6rem); }
+  .flip.sredni { font-size: clamp(2.6rem, 13vw, 4.2rem); }
+  .flip .sep { color: #777; font-size: 0.6em; padding: 0 0.05em; }
+  .d { position: relative; display: inline-block; width: 0.78em; height: 1.2em; color: #f4f4f4; border-radius: 0.09em; box-shadow: 0 0.04em 0.08em rgba(0,0,0,.35); }
+  .d > span { position: absolute; left: 0; right: 0; height: 50%; overflow: hidden; background: #2b2b2b; }
+  .d .gora, .d .lgora { top: 0; border-radius: 0.09em 0.09em 0 0; background: linear-gradient(#262626, #303030); }
+  .d .dol, .d .ldol { bottom: 0; border-radius: 0 0 0.09em 0.09em; background: linear-gradient(#2c2c2c, #222); }
+  .d b { position: absolute; left: 0; right: 0; height: 200%; line-height: 1.2em; text-align: center; }
+  .d .gora b, .d .lgora b { top: 0; }
+  .d .dol b, .d .ldol b { bottom: 0; }
+  /* poziome cięcie karty */
+  .d::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 0.025em; min-height: 1px; margin-top: -0.0125em; background: #fff; opacity: .9; z-index: 3; }
+  @media (prefers-color-scheme: dark) { .d::after { background: #161616; } .d { box-shadow: 0 0 0 1px #3a3a3a; } }
+  .d .lgora { z-index: 2; transform-origin: 50% 100%; animation: klapGora .25s ease-in forwards; }
+  .d .ldol { z-index: 2; transform-origin: 50% 0; transform: rotateX(90deg); animation: klapDol .25s .25s ease-out forwards; }
+  @keyframes klapGora { to { transform: rotateX(-90deg); } }
+  @keyframes klapDol { to { transform: rotateX(0); } }
+  @media (prefers-reduced-motion: reduce) { .d .lgora, .d .ldol { animation: none; display: none; } }
+  .apel { font-size: 1.35rem; line-height: 1.45; text-align: center; margin: 0.5rem 0 2rem; padding: 1.2rem 1rem; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+  @media (prefers-color-scheme: dark) { .apel { border-color: #333; } }
+  .czas-opis { font-size: 0.8rem; color: #777; margin: 0.3rem 0 0; word-spacing: 0.2em; }
+</style>
+
+<h1 style="text-align:center">Ile czekamy na decyzję Ministerstwa Zdrowia</h1>
+
+<section class="licznik" data-od="2026-05-01T00:00:00+02:00" data-czas="tak">
+  <p class="lead">Pacjenci z NF są bez skoordynowanej opieki już</p>
+  <div class="flip" data-dni aria-live="off">189</div>
+  <span class="jedn" data-jedn>dni</span>
+  <div class="flip maly" data-zegar aria-hidden="true"></div>
+  <p class="czas-opis" data-zegar-opis hidden>godzin · minut · sekund</p>
+  <p class="od">Pilotaż koordynowanej opieki dla 2 830 pacjentów zakończył się 30 kwietnia 2026 r.<br>Od tego dnia pacjenci nie mają koordynatora.</p>
+</section>
+
+<section class="licznik" data-od="2026-10-23T00:00:00+02:00">
+  <p class="lead">Ministerstwo Zdrowia zakończyło prace nad stałym świadczeniem</p>
+  <div class="flip sredni" data-dni>14</div>
+  <span class="jedn" data-jedn>dni temu</span>
+  <p class="od">Pismo do Stowarzyszenia Neurofibromatozy Polska z 23 października 2026 r.<br>Od tego dnia nie ma odpowiedzi, kto i kiedy zapewni pacjentom koordynatora.</p>
+</section>
+
+<p class="apel">Pani Ministro, Panie Wiceministrze,<br><strong>czekamy, aż podejmą Państwo dialog z pacjentami.</strong></p>
+
+<p>Skąd te daty: <a href="https://nf1news.pl/2026/10/30/od-prowadzimy-prace-do-zakonczono-dalsze-prace/">Od „prowadzimy prace” do „zakończono dalsze prace”</a>. Co możesz zrobić: <a href="https://nf1news.pl/2026/11/02/co-moga-zrobic-pacjenci-i-rodziny/">poradnik dla pacjentów i rodzin</a>.</p>
+
+<script>
+  // Liczy pełne dni od podanej chwili (czas polski). Bez JavaScriptu zostaje zwykła liczba z dnia zbudowania strony.
+  (function () {
+    function karta(z) {
+      var d = document.createElement('span');
+      d.className = 'd'; d.dataset.z = z;
+      d.innerHTML = '<span class="gora"><b>' + z + '</b></span><span class="dol"><b>' + z + '</b></span>';
+      return d;
+    }
+    function przeskocz(d, z) {
+      var stara = d.dataset.z;
+      if (stara === z) return;
+      d.dataset.z = z;
+      d.querySelectorAll('.lgora, .ldol').forEach(function (e) { e.remove(); });
+      d.querySelector('.gora b').textContent = z;
+      d.querySelector('.dol b').textContent = stara;
+      var lg = document.createElement('span'); lg.className = 'lgora'; lg.innerHTML = '<b>' + stara + '</b>';
+      var ld = document.createElement('span'); ld.className = 'ldol'; ld.innerHTML = '<b>' + z + '</b>';
+      d.appendChild(lg); d.appendChild(ld);
+      setTimeout(function () { if (d.dataset.z === z) { d.querySelector('.dol b').textContent = z; lg.remove(); ld.remove(); } }, 520);
+    }
+    // Pokazuje tekst (cyfry i dwukropki) jako karty; przy zmianie długości buduje karty od nowa.
+    function pokaz(el, tekst) {
+      if (el.dataset.dl !== String(tekst.length)) {
+        el.dataset.dl = tekst.length; el.textContent = '';
+        tekst.split('').forEach(function (z) {
+          if (z === ':') { var s = document.createElement('span'); s.className = 'sep'; s.textContent = ':'; el.appendChild(s); }
+          else el.appendChild(karta(z));
+        });
+        return;
+      }
+      var karty = el.querySelectorAll('.d'), i = 0;
+      tekst.split('').forEach(function (z) { if (z !== ':') przeskocz(karty[i++], z); });
+    }
+    function dwa(n) { return (n < 10 ? '0' : '') + n; }
+    var bloki = document.querySelectorAll('.licznik[data-od]');
+    bloki.forEach(function (b) {
+      var dni = b.querySelector('[data-dni]');
+      dni.setAttribute('aria-label', dni.textContent.trim() + ' dni');
+      var opis = b.querySelector('[data-zegar-opis]'); if (opis) opis.hidden = false;
+    });
+    function tick() {
+      var teraz = Date.now();
+      bloki.forEach(function (b) {
+        var ms = Math.max(0, teraz - new Date(b.dataset.od).getTime());
+        var dni = Math.floor(ms / 86400000), r = ms % 86400000;
+        var el = b.querySelector('[data-dni]');
+        pokaz(el, String(dni));
+        el.setAttribute('aria-label', dni + (dni === 1 ? ' dzień' : ' dni'));
+        var j = b.querySelector('[data-jedn]');
+        j.textContent = (dni === 1 ? 'dzień' : 'dni') + (b.dataset.czas ? '' : ' temu');
+        var zeg = b.querySelector('[data-zegar]');
+        if (zeg) pokaz(zeg, dwa(Math.floor(r / 3600000)) + ':' + dwa(Math.floor(r % 3600000 / 60000)) + ':' + dwa(Math.floor(r % 60000 / 1000)));
+      });
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+
+  </main>
+  <script>
+    // Facebook nie pozwala wstawić tekstu przez link, więc pokazujemy zajawkę do skopiowania.
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t.matches && t.matches('a.fb-share')) {
+        var box = t.closest('.share').nextElementSibling;
+        if (!box || !box.classList.contains('fb-box')) return;
+        e.preventDefault();
+        box.hidden = !box.hidden;
+      } else if (t.matches && t.matches('button.fb-copy')) {
+        var b = t.closest('.fb-box'), ta = b.querySelector('textarea'), done = b.querySelector('.fb-done');
+        ta.focus(); ta.select(); ta.setSelectionRange(0, ta.value.length);
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (err) {}
+        if (!ok && navigator.clipboard) navigator.clipboard.writeText(ta.value);
+        done.hidden = false;
+      } else if (t.matches && t.matches('button.copy-addr')) {
+        // „Kopiuj” przy adresie: kopiuje sam adres i na chwilę zmienia napis na przycisku.
+        var addr = t.dataset.copy, label = t.textContent;
+        var done = function (ok) { t.textContent = ok ? 'Skopiowano ✓' : 'Nie udało się'; setTimeout(function () { t.textContent = label; }, 2000); };
+        var fallback = function () {
+          var tmp = document.createElement('textarea'), ok = false;
+          tmp.value = addr; tmp.setAttribute('readonly', ''); tmp.style.position = 'fixed'; tmp.style.opacity = '0';
+          document.body.appendChild(tmp); tmp.select();
+          try { ok = document.execCommand('copy'); } catch (err) {}
+          document.body.removeChild(tmp); done(ok);
+        };
+        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(addr).then(function () { done(true); }, fallback);
+        else fallback();
+      } else if (t.matches && t.matches('button.copy')) {
+        // „Skopiuj treść”: najpierw schowek, potem execCommand, a gdy oba zawiodą,
+        // zaznaczamy tekst w polu, żeby można go było skopiować ręcznie.
+        var box = t.closest('.mail-box'), ta = document.getElementById(t.dataset.target);
+        if (!box || !ta) return;
+        var msg = box.querySelector('.copy-msg');
+        var show = function (text) { msg.textContent = text; };
+        var select = function () { ta.focus(); ta.select(); ta.setSelectionRange(0, ta.value.length); };
+        var legacy = function () {
+          var ok = false;
+          select();
+          try { ok = document.execCommand('copy'); } catch (err) {}
+          show(ok ? 'Skopiowano. Wklej treść do maila.' : 'Nie udało się skopiować automatycznie. Tekst w polu poniżej jest zaznaczony: wybierz „Kopiuj”.');
+        };
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(ta.value).then(function () { show('Skopiowano. Wklej treść do maila.'); }, legacy);
+        } else legacy();
+      }
+    });
+    // „Otwórz w programie pocztowym”: adresy, temat (pierwsza linia „Temat: …”) i treść.
+    document.querySelectorAll('a.mailto').forEach(function (a) {
+      var ta = document.getElementById(a.dataset.target);
+      if (!ta) return;
+      var text = ta.value, subject = a.dataset.subject || '', m = text.match(/^Temat:\s*(.*)\n+/);
+      if (m) { subject = subject || m[1]; text = text.slice(m[0].length); }
+      var q = [];
+      if (a.dataset.bcc) q.push('bcc=' + encodeURIComponent(a.dataset.bcc));
+      if (subject) q.push('subject=' + encodeURIComponent(subject));
+      q.push('body=' + encodeURIComponent(text));
+      a.href = 'mailto:' + a.dataset.to + '?' + q.join('&');
+    });
+  </script>
+  <footer>Niezależny serwis informacyjny o NF1 w Polsce · <a href="https://nf1news.pl/prywatnosc/">Prywatność</a></footer>
+</body>
+</html>
