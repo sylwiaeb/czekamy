@@ -42,9 +42,13 @@
 </a>
 <script>
   (function () {
+    function warszawa(t) { var p = {}; new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Warsaw', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' }).formatToParts(t).forEach(function (x) { p[x.type] = +x.value; }); return p; }
+    // Pełne dni liczone po kalendarzu w czasie polskim (zmiana czasu nie przesuwa licznika o godzinę).
+    function dniOd(od, w) { var s = od.slice(0, 10).split('-'); return Math.max(0, Math.round((Date.UTC(w.year, w.month - 1, w.day) - Date.UTC(+s[0], s[1] - 1, +s[2])) / 86400000)); }
     function rysuj() {
+      var w = warszawa(new Date());
       document.querySelectorAll('.klapki[data-od]').forEach(function (el) {
-        var dni = Math.max(0, Math.floor((Date.now() - new Date(el.dataset.od).getTime()) / 86400000));
+        var dni = dniOd(el.dataset.od, w);
         el.innerHTML = String(dni).split('').map(function (z) { return '<span class="k">' + z + '</span>'; }).join('');
         el.setAttribute('aria-label', dni + (dni === 1 ? ' dzień' : ' dni'));
         el.parentNode.querySelector('[data-j]').textContent = dni === 1 ? 'dzień' : 'dni';
